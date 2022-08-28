@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TableFooter } from "./TableFooter";
 
 export const Table = (props) => {
-    const [page, setPage] = useState(1); 
+    const [page, setPage] = useState(1);
     const { items, requestFilter } = filterData(props.products); // Запрашиваем отфильрованные данные
     const { slice, range } = useTable(items, page, 4); // Берем из него слайс, учитывая текущую страницу и кол-во строчек на страницу (в этом случае их 4).
     const { sortedItems, requestSort, sortState } = sortData(slice); // Запрашиваем отсортированные данные
@@ -21,13 +21,13 @@ export const Table = (props) => {
         }
         if (dir == "descending") {
             return "↑";
-        } 
+        }
     };
 
     return (
-        <div className="relative overflow-x-auto shadow-xl rounded-lg">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className="flex flex-col w-11/12 shadow-xl rounded-lg overflow-x-hidden">
+            <table className="w-full  text-sm text-left text-slate-500 dark:text-slate-400">
+                <thead className="text-slate-700 bg-slate-50 dark:bg-slate-700 dark:text-slate-400">
                     <tr>
                         {/* <th scope="col" className="px-6 py-3">
                             ID
@@ -65,11 +65,11 @@ export const Table = (props) => {
                     {sortedItems.map((item) => (
                         <tr
                             key={item.id}
-                            className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                            className="bg-white border-b dark:bg-slate-800 dark:border-slate-700"
                         >
                             {/* <td className="px-6 py-4">{item.id}</td> */}
 
-                            <th className="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                            <th className="px-6 py-4 font-medium text-slate-900 dark:text-white whitespace-nowrap">
                                 {item.name}
                             </th>
                             <td className="px-6 py-4">{item.count}</td>

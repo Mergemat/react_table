@@ -2,7 +2,7 @@ import { Table } from "./components/Table";
 
 function App() {
     return (
-        <div className="App p-10">
+        <div className="flex justify-center items-center w-full h-screen bg-slate-500">
             <Table
                 products={[
                     {
